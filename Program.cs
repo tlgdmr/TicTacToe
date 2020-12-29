@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace TicTacToe
@@ -8,17 +9,87 @@ namespace TicTacToe
         //Track the game round to determine if the game is over.
         static int gameRound = 0;
 
+        //Check the all options to determine which player win.
+        private static int CheckWin(char[] arr)
+        {
+            if (arr[0] == arr[1] && arr[1] == arr[2])
+            {
+                return 1;
+            }
+            else if (arr[3] == arr[4] && arr[4] == arr[5])
+            {
+                return 1;
+            }
+            else if (arr[6] == arr[7] && arr[7] == arr[8])
+            {
+                return 1;
+            }
+            else if (arr[0] == arr[3] && arr[3] == arr[6])
+            {
+                return 1;
+            }
+            else if (arr[1] == arr[4] && arr[4] == arr[7])
+            {
+                return 1;
+            }
+            else if (arr[2] == arr[5] && arr[5] == arr[8])
+            {
+                return 1;
+            }
+            else if (arr[0] == arr[4] && arr[4] == arr[8])
+            {
+                return 1;
+            }
+            else if (arr[2] == arr[4] && arr[4] == arr[6])
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        //Menu Bar section ,when the project start.
         static void Main(string[] args)
         {
+            Console.Clear();
 
+            Console.WriteLine("1 = Start the Game");
+            Console.WriteLine("2 = About The Author");
+            Console.WriteLine("3 = Exit");
+
+
+            string choose = Console.ReadLine();
+
+            if (choose == "1")
+            {
+                StartGame();
+                return;
+            }
+            else if (choose == "2")
+            {
+                aboutAuthor();
+                return;
+            }
+            else if (choose == "3")
+            {
+                exit();
+                return;
+            }
+        }
+
+        public static void StartGame()
+        {
             //Created a variable to store status of the game.
-            bool gameStatus = false;
+            bool gameStatus = false; gameRound = 0;
 
             //Created a variable to store current player
             int currentPlayer = 0;
 
             //Created a char array to draw the default board.
             char[] gameMarkers = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
             do
             {
                 //Clear the console for every round
@@ -39,8 +110,40 @@ namespace TicTacToe
                 //Check the game status.
                 gameStatus = isGameOver();
 
+                int status = CheckWin(gameMarkers);
+
+                //Status 1 means If the player win.
+                //Show the player who win.
+                if (status == 1)
+                {
+                    Console.Clear();
+
+                    HeadsUpDisplay(currentPlayer);
+                    DrawGameboard(gameMarkers);
+
+                    Console.WriteLine("Game Over!");
+                    Console.WriteLine("Current player " + currentPlayer + " won this game!");
+
+                    //Get back to the main menu when the player win.
+                    Console.WriteLine("Get back to the main menu, press M");
+
+                    string choose = Console.ReadLine().ToLower();
+
+                    if (choose == "m")
+                    {
+                        Main(null);
+                        return;
+                    }
+
+                    return;
+                }
+
             } while (!gameStatus);
 
+            Console.Clear();
+
+            HeadsUpDisplay(currentPlayer);
+            DrawGameboard(gameMarkers);
 
             //If the game is over.
             if (gameStatus)
@@ -50,7 +153,51 @@ namespace TicTacToe
                 DrawGameboard(gameMarkers);
 
                 Console.WriteLine("Game Over!");
+                Console.WriteLine("The game ended in a draw!");
+
+                //Get back to the main menu when the game is draw.
+                Console.WriteLine("Get back to the main menu, press M");
+
+                string choose = Console.ReadLine().ToLower();
+
+                if (choose == "m")
+                {
+                    Main(null);
+                    return;
+                }
+
             }
+        }
+
+        //Yes or No options will appear when the player want to exit.
+        private static void exit()
+        {
+            Console.Clear();
+            Console.WriteLine("Do you really want to exit ? y/Yes, n/No");
+            string yesNo = Console.ReadLine().ToLower();
+
+            if (yesNo == "y")
+                Console.WriteLine("See You Again");
+
+            if (yesNo == "n")
+                Main(null);
+
+        }
+
+        //About the authour section.
+        private static void aboutAuthor()
+        {
+            Console.Clear();
+            Console.WriteLine("************************************");
+            Console.WriteLine("Hi I am Tolga. I have been learning C# and creating new games.Enjoy the game :)");
+            Console.WriteLine("************************************");
+
+            //Get back to the main menu section.
+            Console.WriteLine("Enter 'M' get back to the Main Menu");
+
+            if (Console.ReadLine().ToLower() == "m")
+                Main(null);
+
         }
 
         /// <summary>

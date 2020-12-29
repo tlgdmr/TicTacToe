@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asus\\Desktop\\TicTacToe_ProVersion (1)\\TicTacToe\\TicTacToe\\TicTacToe.csproj": {}
+    "C:\\Users\\asus\\Desktop\\TicTacToe-master\\TicTacToe-master\\TicTacToe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asus\\Desktop\\TicTacToe_ProVersion (1)\\TicTacToe\\TicTacToe\\TicTacToe.csproj": {
+    "C:\\Users\\asus\\Desktop\\TicTacToe-master\\TicTacToe-master\\TicTacToe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asus\\Desktop\\TicTacToe_ProVersion (1)\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
+        "projectUniqueName": "C:\\Users\\asus\\Desktop\\TicTacToe-master\\TicTacToe-master\\TicTacToe.csproj",
         "projectName": "TicTacToe",
-        "projectPath": "C:\\Users\\asus\\Desktop\\TicTacToe_ProVersion (1)\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
+        "projectPath": "C:\\Users\\asus\\Desktop\\TicTacToe-master\\TicTacToe-master\\TicTacToe.csproj",
         "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asus\\Desktop\\TicTacToe_ProVersion (1)\\TicTacToe\\TicTacToe\\obj\\",
+        "outputPath": "C:\\Users\\asus\\Desktop\\TicTacToe-master\\TicTacToe-master\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
